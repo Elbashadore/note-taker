@@ -19,11 +19,24 @@ route.post('/',(req,res)=>{
         id:uuidv4()
     }
     data.push(newNote);
-
+    try {
     fs.writeFileSync('db/db.json',JSON.stringify(data));
     res.json(data);
+    }
+    catch (err){
+      res.status(500).send(err);
+    }
 })
 
+fs.writeFile('fileName','data',(err,data)=>{
+
+})
+
+
+route.delete('/'),(req,res)=>{
+  const data = JSON.parse(fs.readFileSync('db/db.json'));
+  
+}
 
 
 
